@@ -2,7 +2,7 @@ import unittest
 
 
 
-from main.day_20161031.FibonacciSequence import *
+from main.day_20161101.fibonacciSequence import *
 
 
 
@@ -24,29 +24,18 @@ class FibonacciSequenceTest(unittest.TestCase):
 
     def testGetFibonacciNumberByIterate(self):
 
-        self.assertEqual(getFibonacciNumberByIterate(1), 0)
+        self.assertEqual(getFibonacciNumberByIterate(0), 0)
+
+        self.assertEqual(getFibonacciNumberByIterate(1), 1)
 
         self.assertEqual(getFibonacciNumberByIterate(2), 1)
 
-        self.assertEqual(getFibonacciNumberByIterate(3), 1)
+        self.assertEqual(getFibonacciNumberByIterate(3), 2)
 
-        self.assertEqual(getFibonacciNumberByIterate(4), 2)
+        self.assertEqual(getFibonacciNumberByIterate(4), 3)
 
-        self.assertEqual(getFibonacciNumberByIterate(5), 3)
+        self.assertEqual(getFibonacciNumberByIterate(5), 5)
 
-
-
-    def testGetFibonacciNumberByRecursive(self):
-
-        self.assertEqual(getFibonacciNumberByRecursive(1), 0)
-
-        self.assertEqual(getFibonacciNumberByRecursive(2), 1)
-
-        self.assertEqual(getFibonacciNumberByRecursive(3), 1)
-
-        self.assertEqual(getFibonacciNumberByRecursive(4), 2)
-
-        self.assertEqual(getFibonacciNumberByRecursive(5), 3)
 
 
 

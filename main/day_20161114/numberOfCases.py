@@ -7,18 +7,16 @@
 # 4 -> (1, 1, 1, 1), (1, 3), (3, 1), (2, 2), (1, 1, 2), (1, 2, 1), (2, 1, 1) : 7가지
 
 def numberOfCases(inputNum):
-  inputNum1 = inputNum
-
-  for num in range(1,4):
-
-    #입력된값과 처음이 같은숫자일때
-    if num == inputNum:
-      return num
-
-
-    print(num)
+  if inputNum == 1:
+    lastNum = 1
+  elif inputNum == 2:
+    lastNum = 2
+  elif inputNum == 3:
+    lastNum = 4
+  else:
+    return numberOfCases(inputNum-1)+numberOfCases(inputNum-2)+numberOfCases(inputNum-3)
 
 
+  return lastNum
 
 
-  return True
