@@ -1,35 +1,18 @@
 import unittest
-
-
-
+import time
 from main.day_20161118.numberOfCasesAll import *
 
 
-
-class NumOfCases(unittest.TestCase):
-
-
-
+class numberOfCasesAllTest(unittest.TestCase):
     def setUp(self):
-
         pass
-
-
 
     def tearDown(self):
-
         pass
 
+    def testgetNumberCase(self):
+        result = getNumberCase(3)
+        self.assertEqual(result, 7)
 
-
-    def testGetNumberOfCasesAll(self):
-
-       result = numberOfCasesAll(3)
-       print(result)
-
-
-
-
-if __name__ == '__main__':
-
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
