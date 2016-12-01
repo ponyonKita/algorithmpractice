@@ -17,5 +17,5 @@ def numberOfCasesAll(insertNumber, targetNumber, numberList):
     return 0
 
 def getNumberCase(targetNumber):
-  insertNumber = combination(0, targetNumber, [])
+  insertNumber = numberOfCasesAll(0, targetNumber, [])
   return insertNumber
