@@ -12,22 +12,24 @@
 # ‘(){[]}’ -> True
 # ‘[3 + 2] x 4 + (3 + 6}’ -> False
 
-def bracketCheckWithStack(insertString):
-    stack = []  # stack create
+def bracketCheckWithStack(inputString):
+    stack = []
 
     openBracket = ['(', '{', '〔', '[', '「', '((', '《', '〚', '〖', '『']
     closeBracket = [')', '}', '〕', ']', '」', '))', '》', '〛', '〗', '』']
-    text = [insertString[i:i+1] for i in range(len(insertString))]
+    inputTextList = [inputString[i:i+1] for i in range(len(inputString))]
 
-    for checkString in text:
+    for checkString in inputTextList:
+
         if checkString in openBracket:
             stack.append(checkString)
+
         elif checkString in closeBracket:
             if stack == []:
                 return False
             else:
-                    if closeBracket.index(checkString) != openBracket.index(stack.pop()):
-                        return False
+                if closeBracket.index(checkString) != openBracket.index(stack.pop()):
+                    return False
 
     if len(stack) > 0:
         return False
