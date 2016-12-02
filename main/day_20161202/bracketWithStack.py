@@ -17,9 +17,8 @@ def bracketCheckWithStack(inputString):
 
     openBracket = ['(', '{', '〔', '[', '「', '((', '《', '〚', '〖', '『']
     closeBracket = [')', '}', '〕', ']', '」', '))', '》', '〛', '〗', '』']
-    inputTextList = [inputString[i:i+1] for i in range(len(inputString))]
 
-    for checkString in inputTextList:
+    for checkString in inputString:
 
         if checkString in openBracket:
             stack.append(checkString)
