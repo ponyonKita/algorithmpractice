@@ -12,26 +12,42 @@
 # ‘(){[]}’ -> True
 # ‘[3 + 2] x 4 + (3 + 6}’ -> False
 
-def bracketCheckWithStack(inputString):
-    stack = []
 
-    openBracket = ['(', '{', '〔', '[', '「', '((', '《', '〚', '〖', '『']
-    closeBracket = [')', '}', '〕', ']', '」', '))', '》', '〛', '〗', '』']
+class CustomStack():
+    def __init__(self):
+        pass
 
-    for checkString in inputString:
+    def push(self, stackList, parameter):
+        return stackList.append(parameter)
 
-        if checkString in openBracket:
-            stack.append(checkString)
+    def pop(self, stackList):
+        return stackList.pop()
 
-        elif checkString in closeBracket:
-            if stack == []:
-                return False
-            else:
-                if closeBracket.index(checkString) != openBracket.index(stack.pop()):
-                    return False
+    def isEmpty(self, stackList):
+        if stackList in ([], ()):
+            return True
 
-    if len(stack) > 0:
         return False
 
-    return True
+    def bracketCheckWithStack(self, inputString):
+        stack = []
 
+        openBracket = ['(', '{', '〔', '[', '「', '((', '《', '〚', '〖', '『']
+        closeBracket = [')', '}', '〕', ']', '」', '))', '》', '〛', '〗', '』']
+
+        for checkString in inputString:
+
+            if checkString in openBracket:
+                stack.append(checkString)
+
+            elif checkString in closeBracket:
+                if self.isEmpty(stack):
+                    return False
+                else:
+                    if closeBracket.index(checkString) != openBracket.index(stack.pop()):
+                        return False
+        return len(stack) == 0
+
+if __name__ == '__main__':
+    test = CustomStack()
+    print(test.bracketCheckWithStack('{{}}'))
