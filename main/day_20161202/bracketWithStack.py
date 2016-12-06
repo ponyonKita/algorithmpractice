@@ -15,35 +15,55 @@
 
 class CustomStack():
     def __init__(self):
-        pass
+        self.stack = []
 
-    def push(self, stackList, parameter):
-        return stackList.append(parameter)
+    def push(self, parameter):
+        return self.stack.append(parameter)
 
-    def pop(self, stackList):
-        return stackList.pop()
+    def pop(self):
+        return self.stack.pop()
 
-    def isEmpty(self, stackList):
-        if stackList in ([], ()):
-            return True
-        return False
+    def isEmpty(self):
+        return self.stack == []
 
-    def bracketCheckWithStack(self, inputString):
-        stack = []
 
-        openBracket = ['(', '{', '〔', '[', '「', '((', '《', '〚', '〖', '『']
-        closeBracket = [')', '}', '〕', ']', '」', '))', '》', '〛', '〗', '』']
+def openBracket(bracketList, inputString):
+    return inputString in bracketList.keys()
 
-        for checkString in inputString:
+def closeBracket(bracketList, inputString):
+    return inputString in bracketList.values()
 
-            if checkString in openBracket:
-                self.push(stack, checkString)
+def isPairBracket(bracketList, stackValue, inputString):
+    return bracketList.get(stackValue) == inputString
 
-            elif checkString in closeBracket:
-                if self.isEmpty(stack):
-                    return False
-                else:
-                    if closeBracket.index(checkString) != openBracket.index(self.pop(stack)):
-                        return False
+def bracketCheckWithStack(inputString):
+    stack = CustomStack()
 
-        return len(stack) == 0
+    bracketList = {
+        '{': '}',
+        '(': ')',
+        '〔': '〕',
+        '[': ']',
+        '「': '」',
+        '((': '))',
+        '《': '》',
+        '〚': '〛',
+        '〖': '〗',
+        '『': '』'
+    }
+
+    for checkString in inputString:
+
+        if openBracket(bracketList, checkString):
+            stack.push(checkString)
+        elif closeBracket(bracketList, checkString):
+            if stack.isEmpty():
+                return False
+            if isPairBracket(bracketList, stack.pop(), checkString):
+                return False
+
+    return stack.isEmpty()
+
+
+
+
