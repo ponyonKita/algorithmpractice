@@ -11,7 +11,7 @@ class bracketWithStackTest(unittest.TestCase):
         pass
 
     def testgetNumberCase(self):
-        result = bracketCheckWithStack('{{]]')
+        result = bracketCheckWithStack('{}[')
         print(result)
 
     if __name__ == '__main__':
