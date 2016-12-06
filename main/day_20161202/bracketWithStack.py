@@ -26,7 +26,6 @@ class CustomStack():
     def isEmpty(self, stackList):
         if stackList in ([], ()):
             return True
-
         return False
 
     def bracketCheckWithStack(self, inputString):
@@ -38,16 +37,13 @@ class CustomStack():
         for checkString in inputString:
 
             if checkString in openBracket:
-                stack.append(checkString)
+                self.push(stack, checkString)
 
             elif checkString in closeBracket:
                 if self.isEmpty(stack):
                     return False
                 else:
-                    if closeBracket.index(checkString) != openBracket.index(stack.pop()):
+                    if closeBracket.index(checkString) != openBracket.index(self.pop(stack)):
                         return False
-        return len(stack) == 0
 
-if __name__ == '__main__':
-    test = CustomStack()
-    print(test.bracketCheckWithStack('{{}}'))
+        return len(stack) == 0
