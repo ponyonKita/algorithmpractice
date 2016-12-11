@@ -26,15 +26,21 @@ def cardGame():
   player3Score = sum([int(score[1:]) for score in player3])
   player4Score = sum([int(score[1:]) for score in player4])
 
+  scores = []
 
-  print(player1)
-  print(player2)
-  print(player3)
-  print(player4)
-  print(player1Score)
-  print(player2Score)
-  print(player3Score)
-  print(player4Score)
+  scores.append(player1Score)
+  scores.append(player2Score)
+  scores.append(player3Score)
+  scores.append(player4Score)
+
+  for score in scores:
+    if scores.count(score) >= 2:
+      return cardGame()
+
+  maxScore= max(scores)
+  player = scores.index(maxScore)
+
+  player = int(player+1)
+  print('winner: player', +player)
 
 
-print(cardGame())

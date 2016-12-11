@@ -10,9 +10,8 @@ class cardGameTest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testgetNumberCase(self):
-        result = cardGame()
-        print(result)
+    def testCardGame(self):
+        cardGame()
 
     if __name__ == '__main__':
         unittest.main()
